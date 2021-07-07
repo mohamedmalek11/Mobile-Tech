@@ -301,6 +301,7 @@ class MyApp extends StatelessWidget {
                   ),
                   Container(
                       height: 300,
+                      
                       child: GridView(
                         padding: EdgeInsets.symmetric(
                           horizontal: 10,
