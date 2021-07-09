@@ -295,27 +295,24 @@ class MyApp extends StatelessWidget {
 
                   // Latest Products Section
                   Container(
+                    margin: EdgeInsets.only(top:10),
                     padding: EdgeInsetsDirectional.all(10),
                     child:
                         Text("أحدث المنتجات", style: TextStyle(fontSize: 23)),
                   ),
                   Container(
-                      height: 300,
-                      
-                      child: GridView(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: 10,
-                        ),
-                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 2,
-                            crossAxisSpacing: 30,
-                            childAspectRatio: 0.65),
+                      height: 280,
+                      child: ListView(
+                        scrollDirection: Axis.horizontal,
+                        
+                        
                         children: [
                           // product 1
                           Container(
-                            margin: EdgeInsets.symmetric(vertical: 15),
+                            width: 180,
+                            margin: EdgeInsets.symmetric(vertical: 15,horizontal: 10),
                             padding: EdgeInsets.symmetric(
-                              horizontal: 5,
+                              horizontal: 10,
                               vertical: 10,
                             ),
                             decoration: BoxDecoration(
@@ -326,30 +323,34 @@ class MyApp extends StatelessWidget {
                               children: [
                                 Image.asset(
                                   "assets/images/Product1.jpg",
-                                  width: 140,
+                                  width: 180,
                                   height: 180,
                                   fit: BoxFit.contain,
                                 ),
                                 Container(
                                     margin: EdgeInsets.only(top: 8),
+                                    alignment: Alignment.center,
                                     padding: EdgeInsets.only(
                                       top: 5,
                                     ),
-                                    child: Text(
-                                      "Honor 50 SE",
-                                      style: TextStyle(fontSize: 15),
+                                    child: RichText(
                                       textAlign: TextAlign.center,
+                                      text: TextSpan(
+                                        text: 'Honor 50 SE',
+                                        style: TextStyle(color: Colors.black),
+                                        
+                                      ),
                                     )),
                               ],
-                            ),
+                            ), 
                           ),
                           //end product 1
-
                            // product 1
                           Container(
-                            margin: EdgeInsets.symmetric(vertical: 15),
+                            width: 180,
+                            margin: EdgeInsets.symmetric(vertical: 15 ,horizontal: 10),
                             padding: EdgeInsets.symmetric(
-                              horizontal: 5,
+                              horizontal: 10,
                               vertical: 10,
                             ),
                             decoration: BoxDecoration(
@@ -360,30 +361,34 @@ class MyApp extends StatelessWidget {
                               children: [
                                 Image.asset(
                                   "assets/images/Product1.jpg",
-                                  width: 140,
+                                  width: 180,
                                   height: 180,
                                   fit: BoxFit.contain,
                                 ),
                                 Container(
                                     margin: EdgeInsets.only(top: 8),
+                                    alignment: Alignment.center,
                                     padding: EdgeInsets.only(
                                       top: 5,
                                     ),
-                                    child: Text(
-                                      "Honor 50 SE",
-                                      style: TextStyle(fontSize: 15),
+                                    child: RichText(
                                       textAlign: TextAlign.center,
+                                      text: TextSpan(
+                                        text: 'Honor 50 SE',
+                                        style: TextStyle(color: Colors.black),
+                                        
+                                      ),
                                     )),
                               ],
-                            ),
+                            ), 
                           ),
                           //end product 1
-
                            // product 1
                           Container(
-                            margin: EdgeInsets.symmetric(vertical: 15),
+                            width: 180,
+                            margin: EdgeInsets.symmetric(vertical: 15,horizontal: 10),
                             padding: EdgeInsets.symmetric(
-                              horizontal: 5,
+                              horizontal: 10,
                               vertical: 10,
                             ),
                             decoration: BoxDecoration(
@@ -394,119 +399,50 @@ class MyApp extends StatelessWidget {
                               children: [
                                 Image.asset(
                                   "assets/images/Product1.jpg",
-                                  width: 140,
+                                  width: 180,
                                   height: 180,
                                   fit: BoxFit.contain,
                                 ),
                                 Container(
                                     margin: EdgeInsets.only(top: 8),
+                                    alignment: Alignment.center,
                                     padding: EdgeInsets.only(
                                       top: 5,
                                     ),
-                                    child: Text(
-                                      "Honor 50 SE",
-                                      style: TextStyle(fontSize: 15),
+                                    child: RichText(
                                       textAlign: TextAlign.center,
+                                      text: TextSpan(
+                                        text: 'Honor 50 SE',
+                                        style: TextStyle(color: Colors.black),
+                                        
+                                      ),
                                     )),
                               ],
-                            ),
+                            ), 
                           ),
                           //end product 1
-
-                           // product 1
-                          Container(
-                            margin: EdgeInsets.symmetric(vertical: 15),
-                            padding: EdgeInsets.symmetric(
-                              horizontal: 5,
-                              vertical: 10,
-                            ),
-                            decoration: BoxDecoration(
-                              border: Border.all(color: Colors.black12),
-                              borderRadius: BorderRadius.circular(5),
-                            ),
-                            child: Column(
-                              children: [
-                                Image.asset(
-                                  "assets/images/Product1.jpg",
-                                  width: 140,
-                                  height: 180,
-                                  fit: BoxFit.contain,
-                                ),
-                                Container(
-                                    margin: EdgeInsets.only(top: 8),
-                                    padding: EdgeInsets.only(
-                                      top: 5,
-                                    ),
-                                    child: Text(
-                                      "Honor 50 SE",
-                                      style: TextStyle(fontSize: 15),
-                                      textAlign: TextAlign.center,
-                                    )),
-                              ],
-                            ),
-                          ),
-                          //end product 1
-
-                           // product 1
-                          Container(
-                            margin: EdgeInsets.symmetric(vertical: 15),
-                            padding: EdgeInsets.symmetric(
-                              horizontal: 5,
-                              vertical: 10,
-                            ),
-                            decoration: BoxDecoration(
-                              border: Border.all(color: Colors.black12),
-                              borderRadius: BorderRadius.circular(5),
-                            ),
-                            child: Column(
-                              children: [
-                                Image.asset(
-                                  "assets/images/Product1.jpg",
-                                  width: 140,
-                                  height: 180,
-                                  fit: BoxFit.contain,
-                                ),
-                                Container(
-                                    margin: EdgeInsets.only(top: 8),
-                                    padding: EdgeInsets.only(
-                                      top: 5,
-                                    ),
-                                    child: Text(
-                                      "Honor 50 SE",
-                                      style: TextStyle(fontSize: 15),
-                                      textAlign: TextAlign.center,
-                                    )),
-                              ],
-                            ),
-                          ),
-                          //end product 1
-                          
                         ],
                       )),
-                  // end Latest Products
+                  // end specal
 
                   // special products
                   Container(
                     padding: EdgeInsetsDirectional.all(10),
-                    child:
-                        Text("الأكثر تميزا", style: TextStyle(fontSize: 23)),
+                    child: Text("الأكثر تميزا", style: TextStyle(fontSize: 23)),
                   ),
                   Container(
-                      height: 300,
-                      child: GridView(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: 10,
-                        ),
-                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 2,
-                            crossAxisSpacing: 30,
-                            childAspectRatio: 0.65),
+                      height: 280,
+                      child: ListView(
+                        scrollDirection: Axis.horizontal,
+                        
+                        
                         children: [
                           // product 1
                           Container(
-                            margin: EdgeInsets.symmetric(vertical: 15),
+                            width: 180,
+                            margin: EdgeInsets.symmetric(vertical: 15,horizontal: 10),
                             padding: EdgeInsets.symmetric(
-                              horizontal: 5,
+                              horizontal: 10,
                               vertical: 10,
                             ),
                             decoration: BoxDecoration(
@@ -517,30 +453,34 @@ class MyApp extends StatelessWidget {
                               children: [
                                 Image.asset(
                                   "assets/images/Product1.jpg",
-                                  width: 140,
+                                  width: 180,
                                   height: 180,
                                   fit: BoxFit.contain,
                                 ),
                                 Container(
                                     margin: EdgeInsets.only(top: 8),
+                                    alignment: Alignment.center,
                                     padding: EdgeInsets.only(
                                       top: 5,
                                     ),
-                                    child: Text(
-                                      "Honor 50 SE",
-                                      style: TextStyle(fontSize: 15),
+                                    child: RichText(
                                       textAlign: TextAlign.center,
+                                      text: TextSpan(
+                                        text: 'Honor 50 SE',
+                                        style: TextStyle(color: Colors.black),
+                                        
+                                      ),
                                     )),
                               ],
-                            ),
+                            ), 
                           ),
                           //end product 1
-
                            // product 1
                           Container(
-                            margin: EdgeInsets.symmetric(vertical: 15),
+                            width: 180,
+                            margin: EdgeInsets.symmetric(vertical: 15 ,horizontal: 10),
                             padding: EdgeInsets.symmetric(
-                              horizontal: 5,
+                              horizontal: 10,
                               vertical: 10,
                             ),
                             decoration: BoxDecoration(
@@ -551,30 +491,34 @@ class MyApp extends StatelessWidget {
                               children: [
                                 Image.asset(
                                   "assets/images/Product1.jpg",
-                                  width: 140,
+                                  width: 180,
                                   height: 180,
                                   fit: BoxFit.contain,
                                 ),
                                 Container(
                                     margin: EdgeInsets.only(top: 8),
+                                    alignment: Alignment.center,
                                     padding: EdgeInsets.only(
                                       top: 5,
                                     ),
-                                    child: Text(
-                                      "Honor 50 SE",
-                                      style: TextStyle(fontSize: 15),
+                                    child: RichText(
                                       textAlign: TextAlign.center,
+                                      text: TextSpan(
+                                        text: 'Honor 50 SE',
+                                        style: TextStyle(color: Colors.black),
+                                        
+                                      ),
                                     )),
                               ],
-                            ),
+                            ), 
                           ),
                           //end product 1
-
                            // product 1
                           Container(
-                            margin: EdgeInsets.symmetric(vertical: 15),
+                            width: 180,
+                            margin: EdgeInsets.symmetric(vertical: 15,horizontal: 10),
                             padding: EdgeInsets.symmetric(
-                              horizontal: 5,
+                              horizontal: 10,
                               vertical: 10,
                             ),
                             decoration: BoxDecoration(
@@ -585,93 +529,28 @@ class MyApp extends StatelessWidget {
                               children: [
                                 Image.asset(
                                   "assets/images/Product1.jpg",
-                                  width: 140,
+                                  width: 180,
                                   height: 180,
                                   fit: BoxFit.contain,
                                 ),
                                 Container(
                                     margin: EdgeInsets.only(top: 8),
+                                    alignment: Alignment.center,
                                     padding: EdgeInsets.only(
                                       top: 5,
                                     ),
-                                    child: Text(
-                                      "Honor 50 SE",
-                                      style: TextStyle(fontSize: 15),
+                                    child: RichText(
                                       textAlign: TextAlign.center,
+                                      text: TextSpan(
+                                        text: 'Honor 50 SE',
+                                        style: TextStyle(color: Colors.black),
+                                        
+                                      ),
                                     )),
                               ],
-                            ),
+                            ), 
                           ),
                           //end product 1
-
-                           // product 1
-                          Container(
-                            margin: EdgeInsets.symmetric(vertical: 15),
-                            padding: EdgeInsets.symmetric(
-                              horizontal: 5,
-                              vertical: 10,
-                            ),
-                            decoration: BoxDecoration(
-                              border: Border.all(color: Colors.black12),
-                              borderRadius: BorderRadius.circular(5),
-                            ),
-                            child: Column(
-                              children: [
-                                Image.asset(
-                                  "assets/images/Product1.jpg",
-                                  width: 140,
-                                  height: 180,
-                                  fit: BoxFit.contain,
-                                ),
-                                Container(
-                                    margin: EdgeInsets.only(top: 8),
-                                    padding: EdgeInsets.only(
-                                      top: 5,
-                                    ),
-                                    child: Text(
-                                      "Honor 50 SE",
-                                      style: TextStyle(fontSize: 15),
-                                      textAlign: TextAlign.center,
-                                    )),
-                              ],
-                            ),
-                          ),
-                          //end product 1
-
-                           // product 1
-                          Container(
-                            margin: EdgeInsets.symmetric(vertical: 15),
-                            padding: EdgeInsets.symmetric(
-                              horizontal: 5,
-                              vertical: 10,
-                            ),
-                            decoration: BoxDecoration(
-                              border: Border.all(color: Colors.black12),
-                              borderRadius: BorderRadius.circular(5),
-                            ),
-                            child: Column(
-                              children: [
-                                Image.asset(
-                                  "assets/images/Product1.jpg",
-                                  width: 140,
-                                  height: 180,
-                                  fit: BoxFit.contain,
-                                ),
-                                Container(
-                                    margin: EdgeInsets.only(top: 8),
-                                    padding: EdgeInsets.only(
-                                      top: 5,
-                                    ),
-                                    child: Text(
-                                      "Honor 50 SE",
-                                      style: TextStyle(fontSize: 15),
-                                      textAlign: TextAlign.center,
-                                    )),
-                              ],
-                            ),
-                          ),
-                          //end product 1
-                          
                         ],
                       )),
                   // end specal
