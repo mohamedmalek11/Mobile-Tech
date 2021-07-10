@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_pro/carousel_pro.dart';
+import 'package:mobile_tech/components/AppDrawer.dart';
 
 class Home extends StatefulWidget {
   State<StatefulWidget> createState() {
@@ -27,102 +28,7 @@ class HomeState extends State<Home> {
             centerTitle: true,
             toolbarHeight: 70,
           ),
-          drawer: Drawer(
-              child: Column(
-            children: [
-              UserAccountsDrawerHeader(
-                accountName: Text("mohamed malek"),
-                accountEmail: Text("mohamedmalek@gmail.com"),
-                currentAccountPicture: CircleAvatar(
-                  child: Icon(
-                    Icons.person,
-                    size: 40,
-                  ),
-                  backgroundColor: Colors.white,
-                  foregroundColor: Colors.black,
-                ),
-                decoration: BoxDecoration(
-                    image: DecorationImage(
-                        image: AssetImage("assets/images/image.jpg"),
-                        fit: BoxFit.cover)),
-              ),
-
-              // the drower menu
-              ListTile(
-                title: Text(
-                  "الرئيسية",
-                  style: TextStyle(fontSize: 17, color: Colors.grey[600]),
-                ),
-                // leading: Icon(Icons.home),
-                trailing: Icon(Icons.arrow_back_ios_new),
-              ),
-              Container(
-                  child: Divider(
-                    thickness: 1,
-                  ),
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 10,
-                  )),
-              ListTile(
-                title: Text(
-                  "الأقسام",
-                  style: TextStyle(fontSize: 17, color: Colors.grey[600]),
-                ),
-                // leading: Icon(Icons.home),
-                trailing: Icon(Icons.arrow_back_ios_new),
-              ),
-              Container(
-                  child: Divider(
-                    thickness: 1,
-                  ),
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 10,
-                  )),
-              ListTile(
-                title: Text(
-                  "حسابي",
-                  style: TextStyle(fontSize: 17, color: Colors.grey[600]),
-                ),
-                // leading: Icon(Icons.home),
-                trailing: Icon(Icons.arrow_back_ios_new),
-              ),
-              Container(
-                  child: Divider(
-                    thickness: 1,
-                  ),
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 10,
-                  )),
-              ListTile(
-                title: Text(
-                  "من نحن",
-                  style: TextStyle(fontSize: 17, color: Colors.grey[600]),
-                ),
-                // leading: Icon(Icons.home),
-                trailing: Icon(Icons.arrow_back_ios_new),
-              ),
-              Container(
-                  child: Divider(
-                    thickness: 1,
-                  ),
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 10,
-                  )),
-              Expanded(
-                child: Container(
-                  alignment: Alignment.bottomCenter,
-                  child: ListTile(
-                    title: Text("تسجيل خروج",
-                        style: TextStyle(
-                          fontSize: 15,
-                          color: Colors.red,
-                        ),
-                        textAlign: TextAlign.center),
-                  ),
-                ),
-              ),
-            ],
-          )),
+          drawer: AppDrawer(),
 
           // the main page
           body: ListView(
