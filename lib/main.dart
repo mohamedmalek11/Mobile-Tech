@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_tech/pages/categories.dart';
 import 'package:mobile_tech/pages/home.dart';
 
 void main() {
@@ -10,6 +11,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        debugShowCheckedModeBanner: false, title: 'MobileTech', home: Home());
+      debugShowCheckedModeBanner: false,
+      title: 'MobileTech',
+      home: Home(),
+      routes: {
+        "categories": (context) {
+          return Categories();
+        },
+        "homePage": (context) {
+          return Home();
+        }
+      },
+    );
   }
 }

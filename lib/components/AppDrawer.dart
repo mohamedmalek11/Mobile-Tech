@@ -37,6 +37,9 @@ class AppDrawerState extends State<AppDrawer> {
           ),
           // leading: Icon(Icons.home),
           trailing: Icon(Icons.arrow_back_ios_new),
+          onTap: () {
+            Navigator.of(context).pushNamed("homePage");
+          },
         ),
         Container(
             child: Divider(
@@ -47,11 +50,14 @@ class AppDrawerState extends State<AppDrawer> {
             )),
         ListTile(
           title: Text(
-            "الأقسام",
+            "الماركات",
             style: TextStyle(fontSize: 17, color: Colors.grey[600]),
           ),
           // leading: Icon(Icons.home),
           trailing: Icon(Icons.arrow_back_ios_new),
+          onTap: () {
+            Navigator.of(context).pushNamed("categories");
+          },
         ),
         Container(
             child: Divider(
@@ -67,6 +73,9 @@ class AppDrawerState extends State<AppDrawer> {
           ),
           // leading: Icon(Icons.home),
           trailing: Icon(Icons.arrow_back_ios_new),
+          onTap: () {
+            Navigator.of(context).pushNamed("categories");
+          },
         ),
         Container(
             child: Divider(
@@ -82,6 +91,9 @@ class AppDrawerState extends State<AppDrawer> {
           ),
           // leading: Icon(Icons.home),
           trailing: Icon(Icons.arrow_back_ios_new),
+          onTap: () {
+            Navigator.of(context).pushNamed("categories");
+          },
         ),
         Container(
             child: Divider(
