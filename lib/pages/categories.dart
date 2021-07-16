@@ -32,6 +32,9 @@ class CategoriesState extends State<Categories> {
             ),
             children: [
               InkWell(
+                onTap: () {
+                        Navigator.of(context).pushNamed("apple");
+                      },
                 child: Container(
                   alignment: Alignment.center,
                   margin: EdgeInsets.symmetric(vertical: 5),

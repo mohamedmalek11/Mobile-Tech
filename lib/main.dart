@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_tech/pages/apple.dart';
 import 'package:mobile_tech/pages/categories.dart';
 import 'package:mobile_tech/pages/home.dart';
 
@@ -20,6 +21,9 @@ class MyApp extends StatelessWidget {
         },
         "homePage": (context) {
           return Home();
+        },
+         "apple": (context) {
+          return Apple();
         }
       },
     );

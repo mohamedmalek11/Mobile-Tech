@@ -73,22 +73,28 @@ class HomeState extends State<Home> {
                   scrollDirection: Axis.horizontal,
                   children: [
                     // category 1
-                    Container(
-                        alignment: Alignment.center,
-                        width: 120,
-                        height: 120,
-                        child: ListTile(
-                          title: Image.asset("assets/images/brands/apple.png"),
-                          subtitle: Container(
-                              padding: EdgeInsets.symmetric(
-                                vertical: 5,
-                              ),
-                              child: Text(
-                                "Apple",
-                                textAlign: TextAlign.center,
-                                style: TextStyle(fontSize: 16),
-                              )),
-                        )),
+                    InkWell(
+                      onTap: () {
+                        Navigator.of(context).pushNamed("apple");
+                      },
+                      child: Container(
+                          alignment: Alignment.center,
+                          width: 120,
+                          height: 120,
+                          child: ListTile(
+                            title:
+                                Image.asset("assets/images/brands/apple.png"),
+                            subtitle: Container(
+                                padding: EdgeInsets.symmetric(
+                                  vertical: 5,
+                                ),
+                                child: Text(
+                                  "Apple",
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(fontSize: 16),
+                                )),
+                          )),
+                    ),
                     // category
                     Container(
                         width: 120,
