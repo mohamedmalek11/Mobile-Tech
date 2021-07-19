@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_tech/components/AppDrawer.dart';
+import 'package:mobile_tech/components/MobileListView.dart';
 
 class Apple extends StatefulWidget {
   @override
@@ -18,7 +19,7 @@ class AppleState extends State<Apple> {
       "battery": "5000",
       "price": "5000",
     },
-     {
+    {
       "image": "",
       "name": "Huawei Y8",
       "camera": "13",
@@ -27,7 +28,15 @@ class AppleState extends State<Apple> {
       "battery": "4000",
       "price": "4500",
     },
-    
+     {
+      "image": "",
+      "name": "Huawei A8",
+      "camera": "10",
+      "storage": "64",
+      "ram": "6",
+      "battery": "5000",
+      "price": "6000",
+    },
   ];
 
   @override
@@ -48,130 +57,14 @@ class AppleState extends State<Apple> {
         body: ListView.builder(
           itemCount: mobileList.length,
           itemBuilder: (BuildContext context, i) {
-            return InkWell(
-              child: Container(
-                margin: EdgeInsets.symmetric(horizontal: 5, vertical: 2),
-                height: 160,
-                child: Card(
-                  child: Row(
-                    children: [
-                      Container(
-                          padding: EdgeInsetsDirectional.all(10),
-                          child: Image.asset(
-                            "assets/images/Product1.jpg",
-                            width: 100,
-                          )),
-                      Expanded(
-                          child: Container(
-                        margin:
-                            EdgeInsets.symmetric(vertical: 10, horizontal: 5),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-
-                            // mobile name
-                            Text(
-                              mobileList [i]["name"],
-                              style: TextStyle(
-                                  fontSize: 20, fontWeight: FontWeight.w700),
-                            ),
-                            Container(
-                              padding: EdgeInsets.only(left: 10, top: 10),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Expanded(
-
-                                    // Mobile camera
-                                    child: Text(
-                                      "الكاميرا: ${mobileList[i]['camera']} MP",
-                                      style: TextStyle(
-                                          fontSize: 16, color: Colors.black54),
-                                    ),
-                                  ),
-                                  Expanded(
-
-                                    // storage
-                                    child: Text(
-                                      "المساحة: ${mobileList[i]['storage']} GB",
-                                      style: TextStyle(
-                                          fontSize: 16, color: Colors.black54),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Container(
-                              padding: EdgeInsets.only(left: 10),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Expanded(
-
-                                    // mobile RAM
-                                    child: Text(
-                                      "الرامات: ${mobileList[i]['ram']} GB",
-                                      style: TextStyle(
-                                          fontSize: 16, color: Colors.black54),
-                                    ),
-                                  ),
-                                  Expanded(
-
-                                    // Battery
-                                    child: Text(
-                                      "البطارية: ${mobileList[i]['battery']} mAh",
-                                      style: TextStyle(
-                                          fontSize: 16, color: Colors.black54),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(top: 5, left: 15),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-
-                                  // Price
-                                  Text(
-                                    "السعر: ${mobileList[i]['price']} جنيه",
-                                    style: TextStyle(
-                                        fontSize: 20,
-                                        color: Colors.orange,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                  Row(
-                                    children: [
-                                      Text(
-                                        "رؤية المزيد",
-                                        style: TextStyle(
-                                            fontSize: 13,
-                                            color: Colors.black26,
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                      Icon(
-                                        Icons.keyboard_arrow_left_outlined,
-                                        color: Colors.black26,
-                                        size: 25,
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                      )),
-                    ],
-                  ),
-                ),
-              ),
-            );
+            return MobileListView(
+                image: mobileList[i]["image"],
+                name: mobileList[i]["name"],
+                camera: mobileList[i]["camera"],
+                storage: mobileList[i]["storage"],
+                ram: mobileList[i]["ram"],
+                battery: mobileList[i]["battery"],
+                price: mobileList[i]["price"]);
           },
         ),
       ),
