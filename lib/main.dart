@@ -14,6 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'MobileTech',
+      theme: ThemeData(fontFamily: "Almarai"),
       home: Home(),
       routes: {
         "categories": (context) {
