@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_tech/pages/appDetails.dart';
 import 'package:mobile_tech/pages/apple.dart';
 import 'package:mobile_tech/pages/categories.dart';
 import 'package:mobile_tech/pages/home.dart';
+// ignore: unused_import
+import 'package:mobile_tech/pages/test.dart';
 
 void main() {
   runApp(MyApp());
@@ -25,7 +28,10 @@ class MyApp extends StatelessWidget {
         },
          "apple": (context) {
           return Apple();
-        }
+        },
+        "appDetails": (context) {
+          return AppDetails();
+        },
       },
     );
   }

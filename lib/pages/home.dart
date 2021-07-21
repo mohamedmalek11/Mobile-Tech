@@ -209,40 +209,45 @@ class HomeState extends State<Home> {
                     scrollDirection: Axis.horizontal,
                     children: [
                       // product 1
-                      Container(
-                        width: 180,
-                        margin:
-                            EdgeInsets.symmetric(vertical: 15, horizontal: 10),
-                        padding: EdgeInsets.symmetric(
-                          horizontal: 10,
-                          vertical: 10,
-                        ),
-                        decoration: BoxDecoration(
-                          border: Border.all(color: Colors.black12),
-                          borderRadius: BorderRadius.circular(5),
-                        ),
-                        child: Column(
-                          children: [
-                            Image.asset(
-                              "assets/images/Product1.jpg",
-                              width: 180,
-                              height: 180,
-                              fit: BoxFit.contain,
-                            ),
-                            Container(
-                                margin: EdgeInsets.only(top: 8),
-                                alignment: Alignment.center,
-                                padding: EdgeInsets.only(
-                                  top: 5,
-                                ),
-                                child: RichText(
-                                  textAlign: TextAlign.center,
-                                  text: TextSpan(
-                                    text: 'Honor 50 SE',
-                                    style: TextStyle(color: Colors.black),
+                      InkWell(
+                        onTap: () {
+                          Navigator.of(context).pushNamed("appDetails");
+                        },
+                        child: Container(
+                          width: 180,
+                          margin: EdgeInsets.symmetric(
+                              vertical: 15, horizontal: 10),
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 10,
+                            vertical: 10,
+                          ),
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.black12),
+                            borderRadius: BorderRadius.circular(5),
+                          ),
+                          child: Column(
+                            children: [
+                              Image.asset(
+                                "assets/images/Product1.jpg",
+                                width: 180,
+                                height: 180,
+                                fit: BoxFit.contain,
+                              ),
+                              Container(
+                                  margin: EdgeInsets.only(top: 8),
+                                  alignment: Alignment.center,
+                                  padding: EdgeInsets.only(
+                                    top: 5,
                                   ),
-                                )),
-                          ],
+                                  child: RichText(
+                                    textAlign: TextAlign.center,
+                                    text: TextSpan(
+                                      text: 'Honor 50 SE',
+                                      style: TextStyle(color: Colors.black),
+                                    ),
+                                  )),
+                            ],
+                          ),
                         ),
                       ),
                       //end product 1
