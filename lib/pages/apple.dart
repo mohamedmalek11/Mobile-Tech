@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_tech/components/AppDrawer.dart';
 import 'package:mobile_tech/components/MobileListView.dart';
+import 'package:mobile_tech/components/homeButton.dart';
 
 class Apple extends StatefulWidget {
   @override
@@ -44,6 +45,9 @@ class AppleState extends State<Apple> {
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
+        floatingActionButton: HomeButton(),
+          floatingActionButtonLocation:
+              FloatingActionButtonLocation.centerDocked,
         appBar: AppBar(
           title: Text("Apple"),
           backgroundColor: Colors.black54,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_tech/components/AppDrawer.dart';
+import 'package:mobile_tech/components/homeButton.dart';
 
 class AppDetails extends StatelessWidget {
   @override
@@ -8,6 +9,9 @@ class AppDetails extends StatelessWidget {
         textDirection: TextDirection.rtl,
         child: Scaffold(
             drawer: AppDrawer(),
+            floatingActionButton: HomeButton(),
+          floatingActionButtonLocation:
+              FloatingActionButtonLocation.centerDocked,
             appBar: AppBar(
               title: Text(
                 "تفاصيل الجهاز",
