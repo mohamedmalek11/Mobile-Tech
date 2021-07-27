@@ -10,8 +10,8 @@ class AppDetails extends StatelessWidget {
         child: Scaffold(
             drawer: AppDrawer(),
             floatingActionButton: HomeButton(),
-          floatingActionButtonLocation:
-              FloatingActionButtonLocation.centerDocked,
+            floatingActionButtonLocation:
+                FloatingActionButtonLocation.centerDocked,
             appBar: AppBar(
               title: Text(
                 "تفاصيل الجهاز",
@@ -303,6 +303,56 @@ class AppDetails extends StatelessWidget {
                         ),
                       ),
                       // end Name Container
+
+                      // Details:
+                      Container(
+                        margin: EdgeInsets.symmetric(
+                          vertical: 7.5,
+                        ),
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 15, vertical: 20),
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(5),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey[200],
+                                offset: const Offset(
+                                  2.0,
+                                  2.0,
+                                ),
+                                blurRadius: 20.0,
+                                spreadRadius: 10.0,
+                              )
+                            ]),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Container(
+                                child: Text("الكاميرا:",
+                                    style: TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.black54,
+                                    ))),
+                            Expanded(
+                              child: Container(
+                                  child: RichText(
+                                      textAlign: TextAlign.end,
+                                      text: TextSpan(
+                                          text:
+                                              "خلفية مزدوجة 13+2 م.ب. / امامية مزدوجة 16+2 م",
+                                          style: TextStyle(
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.black54,
+                                          )))),
+                            ),
+                          ],
+                        ),
+                      ),
+                      // end container
 
                       // Details:
                       Container(
@@ -638,7 +688,6 @@ class AppDetails extends StatelessWidget {
                       ),
                       // end container
 
-                      
                       // Details:
                       Container(
                         margin: EdgeInsets.symmetric(
@@ -688,7 +737,6 @@ class AppDetails extends StatelessWidget {
                         ),
                       ),
                       // end container
-
                     ],
                   ),
                 ),
