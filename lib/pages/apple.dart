@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_tech/components/AppDrawer.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 import 'package:mobile_tech/components/MobileListView.dart';
 import 'package:mobile_tech/components/homeButton.dart';
 
@@ -29,7 +31,7 @@ class AppleState extends State<Apple> {
       "battery": "4000",
       "price": "4500",
     },
-     {
+    {
       "image": "",
       "name": "Huawei A8",
       "camera": "10",
@@ -40,14 +42,21 @@ class AppleState extends State<Apple> {
     },
   ];
 
+  Future getData() async {
+    var url = "http://10.0.2.2/mobile_tech/index.php";
+    var response = await http.get(Uri.parse(url));
+    var responseBody = jsonDecode(response.body);
+
+    return responseBody;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
         floatingActionButton: HomeButton(),
-          floatingActionButtonLocation:
-              FloatingActionButtonLocation.centerDocked,
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         appBar: AppBar(
           title: Text("Apple"),
           backgroundColor: Colors.black54,
@@ -58,17 +67,27 @@ class AppleState extends State<Apple> {
           toolbarHeight: 70,
         ),
         drawer: AppDrawer(),
-        body: ListView.builder(
-          itemCount: mobileList.length,
-          itemBuilder: (BuildContext context, i) {
-            return MobileListView(
-                image: mobileList[i]["image"],
-                name: mobileList[i]["name"],
-                camera: mobileList[i]["camera"],
-                storage: mobileList[i]["storage"],
-                ram: mobileList[i]["ram"],
-                battery: mobileList[i]["battery"],
-                price: mobileList[i]["price"]);
+        body: FutureBuilder(
+          future: getData(),
+          builder: (BuildContext context, AsyncSnapshot snapshot) {
+            if (snapshot.hasData) {
+              return ListView.builder(
+                itemCount: snapshot.data.length,
+                itemBuilder: (BuildContext context, i) {
+                  return MobileListView(
+                      name: snapshot.data[i]["mobile_name"],
+                      camera: snapshot.data[i]["short_camera"],
+                      storage: snapshot.data[i]["mobile_memory_short"],
+                      ram: snapshot.data[i]["mobile_ram"],
+                      battery: snapshot.data[i]["mobile_battery"],
+                      price: snapshot.data[i]["mobile_fast_charge"]);
+                },
+              );
+            }
+            return Center(
+                child: CircularProgressIndicator(
+              color: Colors.orange,
+            ));
           },
         ),
       ),
