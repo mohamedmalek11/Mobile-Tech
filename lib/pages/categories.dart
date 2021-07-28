@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_tech/components/AppDrawer.dart';
+import 'package:mobile_tech/components/appBar.dart';
+import 'package:mobile_tech/components/appDrawer.dart';
 import 'package:mobile_tech/components/homeButton.dart';
 
 class Categories extends StatefulWidget {
@@ -13,19 +14,10 @@ class CategoriesState extends State<Categories> {
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
-        appBar: AppBar(
-          title: Text("الماركات"),
-          backgroundColor: Colors.black54,
-          actions: [
-            IconButton(icon: Icon(Icons.search), onPressed: () {}),
-          ],
-          centerTitle: true,
-          toolbarHeight: 70,
-        ),
+        appBar: myAppBar("الماركات"),
         drawer: AppDrawer(),
         floatingActionButton: HomeButton(),
-          floatingActionButtonLocation:
-              FloatingActionButtonLocation.centerDocked,
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         body: Container(
           padding: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
           child: GridView(
@@ -37,8 +29,8 @@ class CategoriesState extends State<Categories> {
             children: [
               InkWell(
                 onTap: () {
-                        Navigator.of(context).pushNamed("apple");
-                      },
+                  Navigator.of(context).pushNamed("apple");
+                },
                 child: Container(
                   alignment: Alignment.center,
                   margin: EdgeInsets.symmetric(vertical: 5),

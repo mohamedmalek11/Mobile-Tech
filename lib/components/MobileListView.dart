@@ -3,22 +3,41 @@ import 'package:flutter/material.dart';
 class MobileListView extends StatelessWidget {
   final image;
   final name;
+  final cameraShort;
   final camera;
-  final storage;
+  final memoryShort;
   final ram;
   final battery;
   final price;
+  final year;
+  final system;
+  final simCount;
+  final cpu;
+  final memory;
+  final exMemory;
+  final fingerPrint;
+  final fastCharge;
 
   const MobileListView(
       {Key key,
       this.image,
       this.name,
+      this.cameraShort,
       this.camera,
-      this.storage,
+      this.memoryShort,
       this.ram,
       this.battery,
-      this.price})
+      this.price,
+      this.year,
+      this.system,
+      this.simCount,
+      this.cpu,
+      this.memory,
+      this.exMemory,
+      this.fingerPrint,
+      this.fastCharge})
       : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -55,15 +74,15 @@ class MobileListView extends StatelessWidget {
                           Expanded(
                             // Mobile camera
                             child: Text(
-                              "الكاميرا: $camera MP",
+                              "الكاميرا: $cameraShort MP",
                               style: TextStyle(
                                   fontSize: 16, color: Colors.black54),
                             ),
                           ),
                           Expanded(
-                            // storage
+                            // memory
                             child: Text(
-                              "المساحة: $storage GB",
+                              "المساحة: $memoryShort GB",
                               style: TextStyle(
                                   fontSize: 16, color: Colors.black54),
                             ),

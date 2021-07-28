@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_tech/components/AppDrawer.dart';
+import 'package:mobile_tech/components/appDrawer.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-import 'package:mobile_tech/components/MobileListView.dart';
+import 'package:mobile_tech/components/mobileListView.dart';
 import 'package:mobile_tech/components/homeButton.dart';
 
 class Apple extends StatefulWidget {
@@ -11,37 +11,7 @@ class Apple extends StatefulWidget {
 }
 
 class AppleState extends State<Apple> {
-// mobile list builder:
-  var mobileList = [
-    {
-      "image": "",
-      "name": "Huawei Y9",
-      "camera": "14",
-      "storage": "32/64",
-      "ram": "4",
-      "battery": "5000",
-      "price": "5000",
-    },
-    {
-      "image": "",
-      "name": "Huawei Y8",
-      "camera": "13",
-      "storage": "32",
-      "ram": "3",
-      "battery": "4000",
-      "price": "4500",
-    },
-    {
-      "image": "",
-      "name": "Huawei A8",
-      "camera": "10",
-      "storage": "64",
-      "ram": "6",
-      "battery": "5000",
-      "price": "6000",
-    },
-  ];
-
+// get data from sql
   Future getData() async {
     var url = "http://10.0.2.2/mobile_tech/index.php";
     var response = await http.get(Uri.parse(url));
@@ -75,12 +45,25 @@ class AppleState extends State<Apple> {
                 itemCount: snapshot.data.length,
                 itemBuilder: (BuildContext context, i) {
                   return MobileListView(
-                      name: snapshot.data[i]["mobile_name"],
-                      camera: snapshot.data[i]["short_camera"],
-                      storage: snapshot.data[i]["mobile_memory_short"],
-                      ram: snapshot.data[i]["mobile_ram"],
-                      battery: snapshot.data[i]["mobile_battery"],
-                      price: snapshot.data[i]["mobile_fast_charge"]);
+                    // pass data to mobile view to show it on screen
+
+                    name: snapshot.data[i]["mobile_name"],
+                    image: snapshot.data[i]["mobile_image"],
+                    cameraShort: snapshot.data[i]["short_camera"],
+                    camera: snapshot.data[i]["camera"],
+                    memoryShort: snapshot.data[i]["mobile_memory_short"],
+                    ram: snapshot.data[i]["mobile_ram"],
+                    battery: snapshot.data[i]["mobile_battery"],
+                    price: snapshot.data[i]["mobile_price"],
+                    year: snapshot.data[i]["mobile_year"],
+                    system: snapshot.data[i]["mobile_system"],
+                    simCount: snapshot.data[i]["mobile_sim_count"],
+                    cpu: snapshot.data[i]["mobile_cpu"],
+                    memory: snapshot.data[i]["mobile_memory"],
+                    exMemory: snapshot.data[i]["mobile_exMemory"],
+                    fingerPrint: snapshot.data[i]["mobile_finger_print"],
+                    fastCharge: snapshot.data[i]["mobile_fast_charge"],
+                  );
                 },
               );
             }
