@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_tech/pages/MobileDetails.dart';
 
 class MobileListView extends StatelessWidget {
   final image;
@@ -41,6 +42,27 @@ class MobileListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      onTap: () {
+        Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+          return MobileDetails(
+              imageD: image,
+              nameD: name,
+              cameraShortD: cameraShort,
+              cameraD: camera,
+              memoryShortD: memoryShort,
+              ramD: ram,
+              batteryD: battery,
+              priceD: price,
+              yearD: year,
+              systemD: system,
+              simCountD: simCount,
+              cpuD: cpu,
+              memoryD: memory,
+              exMemoryD: exMemory,
+              fingerPrintD: fingerPrint,
+              fastChargeD: fastCharge);
+        }));
+      },
       child: Container(
         margin: EdgeInsets.symmetric(horizontal: 5, vertical: 2),
         height: 160,

@@ -3,7 +3,44 @@ import 'package:mobile_tech/components/appBar.dart';
 import 'package:mobile_tech/components/appDrawer.dart';
 import 'package:mobile_tech/components/homeButton.dart';
 
-class AppDetails extends StatelessWidget {
+class MobileDetails extends StatelessWidget {
+  final imageD;
+  final nameD;
+  final cameraShortD;
+  final cameraD;
+  final memoryShortD;
+  final ramD;
+  final batteryD;
+  final priceD;
+  final yearD;
+  final systemD;
+  final simCountD;
+  final cpuD;
+  final memoryD;
+  final exMemoryD;
+  final fingerPrintD;
+  final fastChargeD;
+
+  const MobileDetails(
+      {Key key,
+      this.imageD,
+      this.nameD,
+      this.cameraShortD,
+      this.cameraD,
+      this.memoryShortD,
+      this.ramD,
+      this.batteryD,
+      this.priceD,
+      this.yearD,
+      this.systemD,
+      this.simCountD,
+      this.cpuD,
+      this.memoryD,
+      this.exMemoryD,
+      this.fingerPrintD,
+      this.fastChargeD})
+      : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Directionality(
@@ -57,7 +94,7 @@ class AppDetails extends StatelessWidget {
                           children: [
                             Expanded(
                                 child: Container(
-                                    child: Text("Huawei 50 SE",
+                                    child: Text(nameD,
                                         style: TextStyle(
                                           fontSize: 25,
                                           fontWeight: FontWeight.bold,
@@ -100,7 +137,7 @@ class AppDetails extends StatelessWidget {
                                       ))),
                             ),
                             Container(
-                                child: Text("5000 جنيه",
+                                child: Text(priceD,
                                     style: TextStyle(
                                       fontSize: 20,
                                       fontWeight: FontWeight.bold,
@@ -109,23 +146,23 @@ class AppDetails extends StatelessWidget {
                           ],
                         ),
                       ),
-                      containerBuilder(context, "تاريخ الاصدار", "3300"),
-                      containerBuilder(context, "نظام التشغيل:", "3300"),
-                      containerBuilder(context, "عدد الشرائح:", "3300"),
+                      containerBuilder(context, "تاريخ الاصدار", yearD),
+                      containerBuilder(context, "نظام التشغيل:", systemD),
+                      containerBuilder(context, "عدد الشرائح:", simCountD),
 
                       nameContainer("الهاردوير"),
 
-                      containerBuilder(context, "الكاميرا", "3300"),
-                      containerBuilder(context, "المعالج:", "3300"),
-                      containerBuilder(context, "الرامات", "3300"),
-                      containerBuilder(context, "المساحة الداخلية:", "128"),
-                      containerBuilder(context, "مدخل الذاكرة:", "3300"),
-                      containerBuilder(context, "بصمة الاصبع:", "في الخلف"),
+                      containerBuilder(context, "الكاميرا", cameraD),
+                      containerBuilder(context, "المعالج:", cpuD),
+                      containerBuilder(context, "الرامات", ramD),
+                      containerBuilder(context, "المساحة الداخلية:", memoryD),
+                      containerBuilder(context, "مدخل الذاكرة:", exMemoryD),
+                      containerBuilder(context, "بصمة الاصبع:", fingerPrintD),
 
                       nameContainer("البطارية"),
 
-                      containerBuilder(context, "السعة:", "3300"),
-                      containerBuilder(context, "شحن سريع:", "نعم")
+                      containerBuilder(context, "السعة:", batteryD),
+                      containerBuilder(context, "شحن سريع:", fastChargeD)
                     ],
                   ),
                 ),
