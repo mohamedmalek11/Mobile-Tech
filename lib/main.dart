@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_tech/pages/appDetails.dart';
-import 'package:mobile_tech/pages/apple.dart';
+import 'package:mobile_tech/pages/category.dart';
 import 'package:mobile_tech/pages/categories.dart';
 import 'package:mobile_tech/pages/home.dart';
 // ignore: unused_import
