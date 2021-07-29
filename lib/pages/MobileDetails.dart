@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_tech/components/appBar.dart';
 import 'package:mobile_tech/components/appDrawer.dart';
@@ -61,9 +62,19 @@ class MobileDetails extends StatelessWidget {
                   ),
                   width: MediaQuery.of(context).size.width,
                   height: MediaQuery.of(context).size.width * 1.5,
-                  child: Image.asset(
-                    "assets/images/Product1.jpg",
-                    fit: BoxFit.contain,
+                  child: CachedNetworkImage(
+                    imageUrl: imageD,
+                    placeholder: (context, url) => Container(
+                        width: 20,
+                        height: 20,
+                        child: Center(
+                            child: CircularProgressIndicator(
+                          color: Colors.orange,
+                        ))),
+                    errorWidget: (context, url, error) => Icon(Icons.error),
+                    width: 100,
+                    height: 150,
+                    fit: BoxFit.cover,
                   ),
                 ),
                 Container(

@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_tech/pages/MobileDetails.dart';
 
@@ -42,38 +43,27 @@ class MobileListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {
-        Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-          return MobileDetails(
-              imageD: image,
-              nameD: name,
-              cameraShortD: cameraShort,
-              cameraD: camera,
-              memoryShortD: memoryShort,
-              ramD: ram,
-              batteryD: battery,
-              priceD: price,
-              yearD: year,
-              systemD: system,
-              simCountD: simCount,
-              cpuD: cpu,
-              memoryD: memory,
-              exMemoryD: exMemory,
-              fingerPrintD: fingerPrint,
-              fastChargeD: fastCharge);
-        }));
-      },
       child: Container(
         margin: EdgeInsets.symmetric(horizontal: 5, vertical: 2),
-        height: 160,
+        height: 165,
         child: Card(
           child: Row(
             children: [
               Container(
                   padding: EdgeInsetsDirectional.all(10),
-                  child: Image.asset(
-                    "assets/images/Product1.jpg",
+                  child: CachedNetworkImage(
+                    imageUrl: image,
+                    placeholder: (context, url) => Container(
+                        width: 20,
+                        height: 20,
+                        child: Center(
+                            child: CircularProgressIndicator(
+                          color: Colors.orange,
+                        ))),
+                    errorWidget: (context, url, error) => Icon(Icons.error),
                     width: 100,
+                    height: 150,
+                    fit: BoxFit.cover,
                   )),
               Expanded(
                   child: Container(
@@ -175,6 +165,27 @@ class MobileListView extends StatelessWidget {
           ),
         ),
       ),
+      onTap: () {
+        Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+          return MobileDetails(
+              imageD: image,
+              nameD: name,
+              cameraShortD: cameraShort,
+              cameraD: camera,
+              memoryShortD: memoryShort,
+              ramD: ram,
+              batteryD: battery,
+              priceD: price,
+              yearD: year,
+              systemD: system,
+              simCountD: simCount,
+              cpuD: cpu,
+              memoryD: memory,
+              exMemoryD: exMemory,
+              fingerPrintD: fingerPrint,
+              fastChargeD: fastCharge);
+        }));
+      },
     );
   }
 }

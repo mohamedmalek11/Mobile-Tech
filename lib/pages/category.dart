@@ -47,8 +47,8 @@ class AppleState extends State<Apple> {
                   return MobileListView(
                     // pass data to mobile view to show it on screen
 
+                    image: snapshot.data[i]["mobile_image".toString()],
                     name: snapshot.data[i]["mobile_name"],
-                    image: snapshot.data[i]["mobile_image"],
                     cameraShort: snapshot.data[i]["short_camera"],
                     camera: snapshot.data[i]["camera"],
                     memoryShort: snapshot.data[i]["mobile_memory_short"],
