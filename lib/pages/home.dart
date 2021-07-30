@@ -40,7 +40,7 @@ class HomeState extends State<Home> {
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     Padding(
-                                      padding: const EdgeInsets.only(right:15),
+                                      padding: const EdgeInsets.only(right: 15),
                                       child: ElevatedButton(
                                           style: ButtonStyle(
                                               backgroundColor:
@@ -375,6 +375,19 @@ class HomeState extends State<Home> {
                     ],
                   )),
               // end specal
+
+              // Banner
+              Container(
+                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(8.0),
+                    child: Image.asset(
+                      "assets/images/template1.png",
+                      fit: BoxFit.cover,
+                      width: 200,
+                      height: 150,
+                    ),
+                  )),
 
               // special products
               Container(
