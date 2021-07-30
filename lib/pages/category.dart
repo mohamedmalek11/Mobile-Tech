@@ -12,8 +12,9 @@ class Apple extends StatefulWidget {
 class AppleState extends State<Apple> {
 // get data from sql
   Future getData() async {
+    var data = {"category": "4"};
     var url = "http://10.0.2.2/mobile_tech/index.php";
-    var response = await http.get(Uri.parse(url));
+    var response = await http.post(Uri.parse(url), body:data);
     var responseBody = jsonDecode(response.body);
 
     return responseBody;
