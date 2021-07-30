@@ -1,6 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:mobile_tech/components/appBar.dart';
 import 'package:mobile_tech/components/appDrawer.dart';
 import 'package:mobile_tech/components/homeButton.dart';
 
@@ -51,7 +50,28 @@ class MobileDetails extends StatelessWidget {
             floatingActionButton: HomeButton(),
             floatingActionButtonLocation:
                 FloatingActionButtonLocation.centerDocked,
-            appBar: myAppBar("تفاصيل الجهاز"),
+            appBar: AppBar(
+              title: Text(
+                "التفاصيل",
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
+              backgroundColor: Colors.black54,
+              actions: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: IconButton(
+                      icon: Icon(
+                        Icons.keyboard_arrow_left,
+                        size: 30,
+                      ),
+                      onPressed: () {
+                        return Navigator.of(context).maybePop();
+                      }),
+                )
+              ],
+              centerTitle: true,
+              toolbarHeight: 70,
+            ),
             body: Container(
                 child: ListView(
               children: [

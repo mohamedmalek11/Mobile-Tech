@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_tech/components/appBar.dart';
 import 'package:mobile_tech/components/appDrawer.dart';
 import 'package:mobile_tech/components/homeButton.dart';
 
@@ -14,7 +13,28 @@ class CategoriesState extends State<Categories> {
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
-        appBar: myAppBar("الماركات"),
+        appBar: AppBar(
+          title: Text(
+            "الماركات",
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          ),
+          backgroundColor: Colors.black54,
+          actions: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: IconButton(
+                  icon: Icon(
+                    Icons.keyboard_arrow_left,
+                    size: 30,
+                  ),
+                  onPressed: () {
+                    return Navigator.of(context).maybePop();
+                  }),
+            )
+          ],
+          centerTitle: true,
+          toolbarHeight: 70,
+        ),
         drawer: AppDrawer(),
         floatingActionButton: HomeButton(),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,

@@ -28,10 +28,23 @@ class AppleState extends State<Apple> {
         floatingActionButton: HomeButton(),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         appBar: AppBar(
-          title: Text("Apple"),
+          title: Text(
+            "apple",
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          ),
           backgroundColor: Colors.black54,
           actions: [
-            IconButton(icon: Icon(Icons.search), onPressed: () {}),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: IconButton(
+                  icon: Icon(
+                    Icons.keyboard_arrow_left,
+                    size: 30,
+                  ),
+                  onPressed: () {
+                    return Navigator.of(context).maybePop();
+                  }),
+            )
           ],
           centerTitle: true,
           toolbarHeight: 70,
