@@ -27,7 +27,7 @@ class CategoryState extends State<Category> {
       child: Scaffold(
         appBar: AppBar(
           title: Text(
-            "apple",
+            "HUAWEI",
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
           backgroundColor: Colors.black54,

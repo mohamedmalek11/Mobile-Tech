@@ -23,13 +23,58 @@ class HomeState extends State<Home> {
                 )),
             backgroundColor: Colors.black54,
             actions: [
-              IconButton(icon: Icon(Icons.search), onPressed: () {}),
+              IconButton(
+                  icon: Icon(Icons.search),
+                  onPressed: () {
+                    return showDialog(
+                        context: context,
+                        builder: (context) {
+                          return Directionality(
+                            textDirection: TextDirection.rtl,
+                            child: AlertDialog(
+                              title: Text("البحث"),
+                              content: Text("أبحث هنا"),
+                              actions: [
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(right:15),
+                                      child: ElevatedButton(
+                                          style: ButtonStyle(
+                                              backgroundColor:
+                                                  MaterialStateProperty.all(
+                                                      Colors.orange)),
+                                          onPressed: () {},
+                                          child: Text("بحث")),
+                                    ),
+                                    TextButton(
+                                      style: ButtonStyle(
+                                          backgroundColor:
+                                              MaterialStateProperty.all(
+                                                  Colors.white)),
+                                      onPressed: () {
+                                        return Navigator.of(context).maybePop();
+                                      },
+                                      child: Text(
+                                        "إغلاق",
+                                        style: TextStyle(color: Colors.red),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          );
+                        });
+                  }),
             ],
             centerTitle: true,
             toolbarHeight: 70,
           ),
           drawer: AppDrawer(),
-          
+
           // the main page
           body: ListView(
             children: [
@@ -75,7 +120,7 @@ class HomeState extends State<Home> {
                     // category 1
                     InkWell(
                       onTap: () {
-                        Navigator.of(context).pushNamed("apple");
+                        Navigator.of(context).pushNamed("category");
                       },
                       child: Container(
                           alignment: Alignment.center,
