@@ -4,7 +4,7 @@ import 'package:mobile_tech/components/appDrawer.dart';
 import 'package:mobile_tech/components/homeButton.dart';
 
 class MobileDetails extends StatelessWidget {
-  final imageD;
+  final image;
   final nameD;
   final cameraShortD;
   final cameraD;
@@ -23,7 +23,7 @@ class MobileDetails extends StatelessWidget {
 
   const MobileDetails(
       {Key key,
-      this.imageD,
+      this.image,
       this.nameD,
       this.cameraShortD,
       this.cameraD,
@@ -82,19 +82,22 @@ class MobileDetails extends StatelessWidget {
                   ),
                   width: MediaQuery.of(context).size.width,
                   height: MediaQuery.of(context).size.width * 1.5,
-                  child: CachedNetworkImage(
-                    imageUrl: imageD,
-                    placeholder: (context, url) => Container(
-                        width: 20,
-                        height: 20,
-                        child: Center(
-                            child: CircularProgressIndicator(
-                          color: Colors.orange,
-                        ))),
-                    errorWidget: (context, url, error) => Icon(Icons.error),
-                    width: 100,
-                    height: 150,
-                    fit: BoxFit.cover,
+                  child: Hero(
+                    tag: "$image tag",
+                    child: CachedNetworkImage(
+                      imageUrl: image,
+                      placeholder: (context, url) => Container(
+                          width: 20,
+                          height: 20,
+                          child: Center(
+                              child: CircularProgressIndicator(
+                            color: Colors.orange,
+                          ))),
+                      errorWidget: (context, url, error) => Icon(Icons.error),
+                      width: 100,
+                      height: 150,
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
                 Container(

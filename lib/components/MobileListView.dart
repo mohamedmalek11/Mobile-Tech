@@ -51,19 +51,22 @@ class MobileListView extends StatelessWidget {
             children: [
               Container(
                   padding: EdgeInsetsDirectional.all(10),
-                  child: CachedNetworkImage(
-                    imageUrl: image,
-                    placeholder: (context, url) => Container(
-                        width: 20,
-                        height: 20,
-                        child: Center(
-                            child: CircularProgressIndicator(
-                          color: Colors.orange,
-                        ))),
-                    errorWidget: (context, url, error) => Icon(Icons.error),
-                    width: 100,
-                    height: 150,
-                    fit: BoxFit.cover,
+                  child: Hero(
+                    tag: "$image tag",
+                    child: CachedNetworkImage(
+                      imageUrl: image,
+                      placeholder: (context, url) => Container(
+                          width: 20,
+                          height: 20,
+                          child: Center(
+                              child: CircularProgressIndicator(
+                            color: Colors.orange,
+                          ))),
+                      errorWidget: (context, url, error) => Icon(Icons.error),
+                      width: 100,
+                      height: 150,
+                      fit: BoxFit.cover,
+                    ),
                   )),
               Expanded(
                   child: Container(
@@ -168,7 +171,7 @@ class MobileListView extends StatelessWidget {
       onTap: () {
         Navigator.of(context).push(MaterialPageRoute(builder: (context) {
           return MobileDetails(
-              imageD: image,
+              image: image,
               nameD: name,
               cameraShortD: cameraShort,
               cameraD: camera,
