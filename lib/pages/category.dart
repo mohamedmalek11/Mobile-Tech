@@ -3,7 +3,6 @@ import 'package:mobile_tech/components/appDrawer.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:mobile_tech/components/mobileListView.dart';
-import 'package:mobile_tech/components/homeButton.dart';
 
 class Apple extends StatefulWidget {
   @override
@@ -25,8 +24,6 @@ class AppleState extends State<Apple> {
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
-        floatingActionButton: HomeButton(),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         appBar: AppBar(
           title: Text(
             "apple",

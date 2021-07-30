@@ -1,7 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_tech/components/appDrawer.dart';
-import 'package:mobile_tech/components/homeButton.dart';
 
 class MobileDetails extends StatelessWidget {
   final image;
@@ -47,9 +46,6 @@ class MobileDetails extends StatelessWidget {
         textDirection: TextDirection.rtl,
         child: Scaffold(
             drawer: AppDrawer(),
-            floatingActionButton: HomeButton(),
-            floatingActionButtonLocation:
-                FloatingActionButtonLocation.centerDocked,
             appBar: AppBar(
               title: Text(
                 "التفاصيل",

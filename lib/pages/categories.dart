@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_tech/components/appDrawer.dart';
-import 'package:mobile_tech/components/homeButton.dart';
 
 class Categories extends StatefulWidget {
   @override
@@ -36,8 +35,6 @@ class CategoriesState extends State<Categories> {
           toolbarHeight: 70,
         ),
         drawer: AppDrawer(),
-        floatingActionButton: HomeButton(),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         body: Container(
           padding: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
           child: GridView(
