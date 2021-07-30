@@ -4,12 +4,12 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:mobile_tech/components/mobileListView.dart';
 
-class Apple extends StatefulWidget {
+class Category extends StatefulWidget {
   @override
-  AppleState createState() => AppleState();
+  CategoryState createState() => CategoryState();
 }
 
-class AppleState extends State<Apple> {
+class CategoryState extends State<Category> {
 // get data from sql
   Future getData() async {
     var data = {"category": "4"};

@@ -26,8 +26,8 @@ class MyApp extends StatelessWidget {
         "homePage": (context) {
           return Home();
         },
-        "apple": (context) {
-          return Apple();
+        "category": (context) {
+          return Category();
         },
         "MobileDetails": (context) {
           return MobileDetails();
