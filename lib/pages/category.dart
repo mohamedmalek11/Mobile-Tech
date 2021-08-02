@@ -77,11 +77,17 @@ class CategoryState extends State<Category> {
                   );
                 },
               );
+            } else if (snapshot.hasError){
+               return Center(
+                child: Text(
+             snapshot.error
+            ));
             }
             return Center(
                 child: CircularProgressIndicator(
               color: Colors.orange,
             ));
+           
           },
         ),
       ),
