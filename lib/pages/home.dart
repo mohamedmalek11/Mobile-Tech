@@ -26,48 +26,7 @@ class HomeState extends State<Home> {
               IconButton(
                   icon: Icon(Icons.search),
                   onPressed: () {
-                    return showDialog(
-                        context: context,
-                        builder: (context) {
-                          return Directionality(
-                            textDirection: TextDirection.rtl,
-                            child: AlertDialog(
-                              title: Text("البحث"),
-                              content: Text("أبحث هنا"),
-                              actions: [
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsets.only(right: 15),
-                                      child: ElevatedButton(
-                                          style: ButtonStyle(
-                                              backgroundColor:
-                                                  MaterialStateProperty.all(
-                                                      Colors.orange)),
-                                          onPressed: () {},
-                                          child: Text("بحث")),
-                                    ),
-                                    TextButton(
-                                      style: ButtonStyle(
-                                          backgroundColor:
-                                              MaterialStateProperty.all(
-                                                  Colors.white)),
-                                      onPressed: () {
-                                        return Navigator.of(context).maybePop();
-                                      },
-                                      child: Text(
-                                        "إغلاق",
-                                        style: TextStyle(color: Colors.red),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          );
-                        });
+                    return showSearch(context: context, delegate: DataSearch());
                   }),
             ],
             centerTitle: true,
@@ -519,5 +478,48 @@ class HomeState extends State<Home> {
             ],
           ),
         ));
+  }
+}
+
+class DataSearch extends SearchDelegate {
+  @override
+  List<Widget> buildActions(BuildContext context) {
+    // action like appbar
+    if (query.isEmpty) {
+      return null;
+    }
+    return [
+      TextButton(
+          onPressed: () {
+            query = "";
+          },
+          child: Icon(Icons.close))
+    ];
+  }
+
+  @override
+  Widget buildLeading(BuildContext context) {
+    // Icon leading
+    return IconButton(
+      onPressed: () {
+        Navigator.of(context).pop();
+      },
+      icon: Icon(
+        Icons.keyboard_arrow_left,
+        size: 30,
+      ),
+    );
+  }
+
+  @override
+  Widget buildResults(BuildContext context) {
+    // Serach results
+    return null;
+  }
+
+  @override
+  Widget buildSuggestions(BuildContext context) {
+    // sugestions
+    return Text("dataa");
   }
 }
