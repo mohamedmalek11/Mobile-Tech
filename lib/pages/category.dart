@@ -14,7 +14,7 @@ class CategoryState extends State<Category> {
   Future getData() async {
     var data = {"category": "4"};
     var url = "http://10.0.2.2/mobile_tech/index.php";
-    var response = await http.post(Uri.parse(url), body:data);
+    var response = await http.post(Uri.parse(url), body: data);
     var responseBody = jsonDecode(response.body);
 
     return responseBody;
@@ -77,17 +77,13 @@ class CategoryState extends State<Category> {
                   );
                 },
               );
-            } else if (snapshot.hasError){
-               return Center(
-                child: Text(
-             snapshot.error
-            ));
+            } else if (snapshot.hasError) {
+              return Center(child: Text(snapshot.error));
             }
             return Center(
                 child: CircularProgressIndicator(
               color: Colors.orange,
             ));
-           
           },
         ),
       ),

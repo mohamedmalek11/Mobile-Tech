@@ -1,6 +1,9 @@
+import 'dart:convert';
+import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:carousel_pro/carousel_pro.dart';
 import 'package:mobile_tech/components/appDrawer.dart';
+import 'package:mobile_tech/components/mobileListView.dart';
 
 class Home extends StatefulWidget {
   State<StatefulWidget> createState() {
@@ -9,6 +12,24 @@ class Home extends StatefulWidget {
 }
 
 class HomeState extends State<Home> {
+  var listSearch = [];
+  // getting mobiles from server:
+  Future getData() async {
+    var url = "http://10.0.2.2/mobile_tech/search.php";
+    var response = await http.post(Uri.parse(url));
+    var responseBody = jsonDecode(response.body);
+
+    for (var i = 0; i < responseBody.length; i++) {
+      listSearch.add(responseBody[i]["mobile_name"]);
+    }
+  }
+
+  @override
+  void initState() {
+    getData();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Directionality(
@@ -26,7 +47,9 @@ class HomeState extends State<Home> {
               IconButton(
                   icon: Icon(Icons.search),
                   onPressed: () {
-                    return showSearch(context: context, delegate: DataSearch());
+                    return showSearch(
+                        context: context,
+                        delegate: DataSearch(list: listSearch));
                   }),
             ],
             centerTitle: true,
@@ -482,6 +505,16 @@ class HomeState extends State<Home> {
 }
 
 class DataSearch extends SearchDelegate {
+  List list;
+  DataSearch({this.list});
+
+  Future getSearchData() async {
+    var url = "http://10.0.2.2/mobile_tech/searchMobile.php";
+    var response = await http.post(Uri.parse(url), body: {"mobileName": query});
+    var responseBody = jsonDecode(response.body);
+    return responseBody;
+  }
+
   @override
   List<Widget> buildActions(BuildContext context) {
     // action like appbar
@@ -514,12 +547,69 @@ class DataSearch extends SearchDelegate {
   @override
   Widget buildResults(BuildContext context) {
     // Serach results
-    return null;
+   
+    return FutureBuilder(
+      future: getSearchData(),
+      builder: (BuildContext context, AsyncSnapshot snapshot) {
+        if (snapshot.hasData) {
+          print(snapshot.data);
+          return ListView.builder(
+            itemCount: snapshot.data.length,
+            itemBuilder: (BuildContext context, i) {
+              return Directionality(
+                textDirection: TextDirection.rtl,
+                child: MobileListView(
+                  // pass data to mobile view to show it on screen
+              
+                  image: snapshot.data[i]["mobile_image".toString()],
+                  name: snapshot.data[i]["mobile_name"],
+                  cameraShort: snapshot.data[i]["short_camera"],
+                  camera: snapshot.data[i]["camera"],
+                  memoryShort: snapshot.data[i]["mobile_memory_short"],
+                  ram: snapshot.data[i]["mobile_ram"],
+                  battery: snapshot.data[i]["mobile_battery"],
+                  price: snapshot.data[i]["mobile_price"],
+                  year: snapshot.data[i]["mobile_year"],
+                  system: snapshot.data[i]["mobile_system"],
+                  simCount: snapshot.data[i]["mobile_sim_count"],
+                  cpu: snapshot.data[i]["mobile_cpu"],
+                  memory: snapshot.data[i]["mobile_memory"],
+                  exMemory: snapshot.data[i]["mobile_exMemory"],
+                  fingerPrint: snapshot.data[i]["mobile_finger_print"],
+                  fastCharge: snapshot.data[i]["mobile_fast_charge"],
+                ),
+              );
+            },
+          );
+        } else if (snapshot.hasError) {
+          return Center(child: Text(snapshot.error));
+        }
+        return Center(
+            child: CircularProgressIndicator(
+          color: Colors.orange,
+        ));
+      },
+    );
   }
 
   @override
   Widget buildSuggestions(BuildContext context) {
     // sugestions
-    return Text("dataa");
+    var serachResult = query.isEmpty
+        ? list
+        : list.where((element) => element.contains(query)).toList();
+
+    return ListView.builder(
+        itemCount: serachResult.length,
+        itemBuilder: (context, i) {
+          return ListTile(
+            leading: Icon(Icons.search),
+            title: Text(serachResult[i]),
+            onTap: () {
+              buildResults(context);
+              query = serachResult[i];
+            },
+          );
+        });
   }
 }
