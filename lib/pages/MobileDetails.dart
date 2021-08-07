@@ -77,7 +77,7 @@ class MobileDetails extends StatelessWidget {
                     border: Border.all(color: Colors.grey[200], width: 2),
                   ),
                   width: MediaQuery.of(context).size.width,
-                  height: MediaQuery.of(context).size.width * 1.5,
+                  height: MediaQuery.of(context).size.width,
                   child: Hero(
                     tag: "$image tag",
                     child: CachedNetworkImage(
@@ -92,7 +92,7 @@ class MobileDetails extends StatelessWidget {
                       errorWidget: (context, url, error) => Icon(Icons.error),
                       width: 100,
                       height: 150,
-                      fit: BoxFit.cover,
+                      fit: BoxFit.contain,
                     ),
                   ),
                 ),
@@ -104,7 +104,7 @@ class MobileDetails extends StatelessWidget {
                       // Name container
                       Container(
                         padding:
-                            EdgeInsets.symmetric(horizontal: 15, vertical: 25),
+                            EdgeInsets.symmetric(horizontal: 15, vertical: 15),
                         decoration: BoxDecoration(
                             color: Colors.orange,
                             borderRadius: BorderRadius.circular(5),
