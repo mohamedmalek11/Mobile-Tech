@@ -11,8 +11,10 @@ class AppDrawerState extends State<AppDrawer> {
   Widget build(BuildContext context) {
     return Drawer(
         child: Column(
+          
       children: [
-        UserAccountsDrawerHeader(
+        SizedBox(height: 20,),
+      /*  UserAccountsDrawerHeader(
           accountName: Text("mohamed malek"),
           accountEmail: Text("mohamedmalek@gmail.com"),
           currentAccountPicture: CircleAvatar(
@@ -28,6 +30,7 @@ class AppDrawerState extends State<AppDrawer> {
                   image: AssetImage("assets/images/image.jpg"),
                   fit: BoxFit.cover)),
         ),
+        */
 
         // the drower menu
         ListTile(
@@ -106,7 +109,7 @@ class AppDrawerState extends State<AppDrawer> {
           child: Container(
             alignment: Alignment.bottomCenter,
             child: ListTile(
-              title: Text("تسجيل خروج",
+              title: Text("",
                   style: TextStyle(
                     fontSize: 15,
                     color: Colors.red,
