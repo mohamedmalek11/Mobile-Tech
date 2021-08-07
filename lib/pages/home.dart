@@ -100,141 +100,30 @@ class HomeState extends State<Home> {
                 // Category section
                 Container(
                   padding: EdgeInsetsDirectional.only(top: 10),
-                  color: Colors.grey[200],
                   child: Text("الماركات",
                       textAlign: TextAlign.center,
                       style: TextStyle(fontSize: 23)),
                 ),
                 Container(
-                  height: 140,
+                  height: 160,
                   padding: EdgeInsets.symmetric(vertical: 10),
-                  color: Colors.grey[200],
                   child: ListView(
                     scrollDirection: Axis.horizontal,
+                    padding: EdgeInsets.symmetric(horizontal: 5),
                     children: [
-                      // category 1
-                      InkWell(
-                        onTap: () {
-                          Navigator.of(context).pushNamed("category");
-                        },
-                        child: Container(
-                            alignment: Alignment.center,
-                            width: 120,
-                            height: 120,
-                            child: ListTile(
-                              title:
-                                  Image.asset("assets/images/brands/apple.png"),
-                              subtitle: Container(
-                                  padding: EdgeInsets.symmetric(
-                                    vertical: 5,
-                                  ),
-                                  child: Text(
-                                    "Apple",
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(fontSize: 16),
-                                  )),
-                            )),
-                      ),
                       // category
-                      Container(
-                          width: 120,
-                          height: 120,
-                          child: ListTile(
-                            title:
-                                Image.asset("assets/images/brands/huawei.png"),
-                            subtitle: Container(
-                                padding: EdgeInsets.symmetric(
-                                  vertical: 5,
-                                ),
-                                child: Text(
-                                  "Huawei",
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(fontSize: 16),
-                                )),
-                          )),
-                      // category
-                      Container(
-                          width: 120,
-                          height: 120,
-                          child: ListTile(
-                            title:
-                                Image.asset("assets/images/brands/nokia.png"),
-                            subtitle: Container(
-                                padding: EdgeInsets.symmetric(
-                                  vertical: 5,
-                                ),
-                                child: Text(
-                                  "Nokia",
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(fontSize: 16),
-                                )),
-                          )),
-                      // category
-                      Container(
-                          width: 120,
-                          height: 120,
-                          child: ListTile(
-                            title: Image.asset("assets/images/brands/oppo.png"),
-                            subtitle: Container(
-                                padding: EdgeInsets.symmetric(
-                                  vertical: 5,
-                                ),
-                                child: Text(
-                                  "Oppo",
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(fontSize: 16),
-                                )),
-                          )),
-                      // category
-                      Container(
-                          width: 120,
-                          height: 120,
-                          child: ListTile(
-                            title:
-                                Image.asset("assets/images/brands/samsung.png"),
-                            subtitle: Container(
-                                padding: EdgeInsets.symmetric(
-                                  vertical: 5,
-                                ),
-                                child: Text(
-                                  "Samsung",
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(fontSize: 16),
-                                )),
-                          )),
-                      // category
-                      Container(
-                          width: 120,
-                          height: 120,
-                          child: ListTile(
-                            title: Image.asset("assets/images/brands/vivo.png"),
-                            subtitle: Container(
-                                padding: EdgeInsets.symmetric(
-                                  vertical: 5,
-                                ),
-                                child: Text(
-                                  "Vivo",
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(fontSize: 16),
-                                )),
-                          )),
-                      // category
-                      Container(
-                          width: 120,
-                          height: 120,
-                          child: ListTile(
-                            title:
-                                Image.asset("assets/images/brands/xiaomi.png"),
-                            subtitle: Container(
-                                padding: EdgeInsets.symmetric(
-                                  vertical: 5,
-                                ),
-                                child: Text(
-                                  "Xiaomi",
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(fontSize: 16),
-                                )),
-                          )),
+                      categoryBuilder(
+                          "assets/images/brands/apple.png", "Apple"),
+                      categoryBuilder(
+                          "assets/images/brands/huawei.png", "Huawei"),
+                      categoryBuilder(
+                          "assets/images/brands/nokia.png", "Nokia"),
+                      categoryBuilder("assets/images/brands/oppo.png", "Oppo"),
+                      categoryBuilder(
+                          "assets/images/brands/samsung.png", "Samsung"),
+                      categoryBuilder("assets/images/brands/vivo.png", "Vivo"),
+                      categoryBuilder(
+                          "assets/images/brands/xiaomi.png", "Xiaomi"),
                     ],
                   ),
                 ),
@@ -318,7 +207,6 @@ class HomeState extends State<Home> {
                       builder: (BuildContext context, AsyncSnapshot snapshot) {
                         if (snapshot.hasData) {
                           return ListView.builder(
-                            
                             scrollDirection: Axis.horizontal,
                             itemCount: 6,
                             itemBuilder: (BuildContext context, i) {
@@ -363,4 +251,44 @@ class HomeState extends State<Home> {
           ),
         ));
   }
+}
+
+categoryBuilder(categoryImage, categoryName) {
+  return InkWell(
+    onTap: () {},
+    child: Container(
+        margin: EdgeInsets.symmetric(horizontal: 7),
+        width: 120,
+        height: 130,
+        decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(5),
+            boxShadow: [
+              BoxShadow(
+                blurRadius: 5,
+                color: Colors.grey[300].withOpacity(0.5),
+                offset: const Offset(
+                  2.0,
+                  2.0,
+                ),
+              )
+            ]),
+        child: ListTile(
+          title: Image.asset(
+            categoryImage,
+            width: 100,
+            height: 100,
+            fit: BoxFit.contain,
+          ),
+          subtitle: Container(
+              padding: EdgeInsets.symmetric(
+                vertical: 5,
+              ),
+              child: Text(
+                categoryName,
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 16, color: Colors.black),
+              )),
+        )),
+  );
 }

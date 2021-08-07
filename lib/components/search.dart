@@ -15,6 +15,9 @@ class DataSearch extends SearchDelegate {
   }
 
   @override
+  String get searchFieldLabel => "بحث";
+
+  @override
   List<Widget> buildActions(BuildContext context) {
     // action like appbar
     if (query.isEmpty) {
