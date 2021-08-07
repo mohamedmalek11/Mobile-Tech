@@ -101,13 +101,16 @@ class DataSearch extends SearchDelegate {
     return ListView.builder(
         itemCount: serachResult.length,
         itemBuilder: (context, i) {
-          return ListTile(
-            leading: Icon(Icons.search),
-            title: Text(serachResult[i]),
-            onTap: () {
-              buildResults(context);
-              query = serachResult[i];
-            },
+          return Directionality(
+            textDirection: TextDirection.rtl,
+            child: ListTile(
+              leading: Icon(Icons.search),
+              title: Text(serachResult[i]),
+              onTap: () {
+                buildResults(context);
+                query = serachResult[i];
+              },
+            ),
           );
         });
   }
