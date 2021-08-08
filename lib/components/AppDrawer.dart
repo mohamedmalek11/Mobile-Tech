@@ -62,24 +62,24 @@ class AppDrawerState extends State<AppDrawer> {
             Navigator.of(context).pushNamed("categories");
           },
         ),
-        Container(
-            child: Divider(
-              thickness: 1,
-            ),
-            padding: EdgeInsets.symmetric(
-              horizontal: 10,
-            )),
-        ListTile(
-          title: Text(
-            "حسابي",
-            style: TextStyle(fontSize: 17, color: Colors.grey[600]),
-          ),
-          // leading: Icon(Icons.home),
-          trailing: Icon(Icons.arrow_back_ios_new),
-          onTap: () {
-            Navigator.of(context).pushNamed("categories");
-          },
-        ),
+        // Container(
+        //     child: Divider(
+        //       thickness: 1,
+        //     ),
+        //     padding: EdgeInsets.symmetric(
+        //       horizontal: 10,
+        //     )),
+        // ListTile(
+        //   title: Text(
+        //     "حسابي",
+        //     style: TextStyle(fontSize: 17, color: Colors.grey[600]),
+        //   ),
+        //   // leading: Icon(Icons.home),
+        //   trailing: Icon(Icons.arrow_back_ios_new),
+        //   onTap: () {
+        //     Navigator.of(context).pushNamed("categories");
+        //   },
+        // ),
         Container(
             child: Divider(
               thickness: 1,
